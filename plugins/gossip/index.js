@@ -215,7 +215,8 @@ module.exports = {
       add: valid.sync(function (addr, source) {
 
         addr = ref.parseAddress(addr)
-        if(!ref.isAddress(addr))
+        // FIXME: remove false && when we get ipv6 parsing working
+        if(false && !ref.isAddress(addr))
           throw new Error('not a valid address:' + JSON.stringify(addr))
         // check that this is a valid address, and not pointing at self.
 

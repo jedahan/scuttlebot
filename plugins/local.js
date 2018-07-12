@@ -17,7 +17,7 @@ function isEmpty (o) {
 /*
   idea: instead of broadcasting constantly,
   broadcast at startup, or when ip address changes (change networks)
-  or when you receive a boardcast.
+  or when you receive a broadcast.
 
   this should use network more efficiently.
 */
@@ -34,7 +34,7 @@ module.exports = {
         }
       }
 
-    var local = broadcast(config.port)
+    var local = broadcast(config.port, true, 'IPv6')
     var addrs = {}
     var lastSeen = {}
 
