@@ -50,7 +50,7 @@
     "pull-stringify": "~1.2.2",
     "rimraf": "^2.4.2",
     "secret-stack": "^4.1.0",
-    "secure-scuttlebutt": "^18.0.7",
+    "secure-scuttlebutt": "^18.1.1",
     "ssb-blobs": "^1.1.4",
     "ssb-client": "^4.5.7",
     "ssb-config": "^2.0.0",
@@ -69,7 +69,7 @@
   "devDependencies": {
     "cat-names": "~1.0.2",
     "dog-names": "~1.0.2",
-    "level-sublevel": "~6.3.15",
+    "level-sublevel": "^6.6.2",
     "level-test": "^3.0.0",
     "ssb-msg-schemas": "~3.2.0",
     "tape": "~4.0.0"
