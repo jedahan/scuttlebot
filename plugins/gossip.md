@@ -2,8 +2,6 @@
 
 Schedule connections randomly with a peerlist constructed from config, multicast UDP announcements, feed announcements, and API-calls.
 
-
-
 ## peers: sync
 
 Get the current peerlist.
@@ -13,10 +11,8 @@ peers
 ```
 
 ```js
-peers(cb)
+peers(cb);
 ```
-
-
 
 ## add: sync
 
@@ -32,10 +28,10 @@ add(addr, cb)
 add({ host:, port:, key: }, cb)
 ```
 
- - `addr` (address string): An address string, of the following format: `hostname:port:feedid`.
- - `host` (host string): IP address or hostname.
- - `port` (port number)
- - `key` (feedid)
+- `addr` (address string): An address string, of the following format: `hostname:port:feedid`.
+- `host` (host string): IP address or hostname.
+- `port` (port number)
+- `key` (feedid)
 
 ## remove: sync
 
@@ -69,11 +65,10 @@ connect(addr, cb)
 connect({ host:, port:, key: }, cb)
 ```
 
- - `addr` (address string): An address string, of the following format: `hostname:port:feedid`.
- - `host` (host string): IP address or hostname.
- - `port` (port number)
- - `key` (feedid)
-
+- `addr` (address string): An address string, of the following format: `hostname:port:feedid`.
+- `host` (host string): IP address or hostname.
+- `port` (port number)
+- `key` (feedid)
 
 ## changes: source
 
@@ -100,7 +95,6 @@ Events come in the following forms:
 
 Tell sbot to reinitiate gossip connections now.
 
-
 ## enable: sync
 
 Update the config to enable a gossip type.
@@ -108,13 +102,13 @@ Update the config to enable a gossip type.
 ```bash
 enable {type}
 ```
+
 ```js
-enable(type, cb)
+enable(type, cb);
 ```
 
- - type (string): The type of gossip to enable: local, global, or seed. Default
-     global.
-
+- type (string): The type of gossip to enable: local, global, or seed. Default
+  global.
 
 ## disable: sync
 
@@ -123,9 +117,10 @@ Update the config to disable a gossip type.
 ```bash
 disable {type}
 ```
+
 ```js
 disable(type, cb)
 ```
 
- - type (string): The type of gossip to enable: local, global, or seed. Default
-     global.
+- type (string): The type of gossip to enable: local, global, or seed. Default
+  global.
