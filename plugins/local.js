@@ -2,7 +2,7 @@ var broadcast = require('broadcast-stream')
 var ref = require('ssb-ref')
 // local plugin
 // broadcasts the address:port:pubkey triple of the sbot server
-// on the LAN, using multicast UDP
+// on the LAN, using ipv4 broadcast UDP, or ipv6 multicast UDP
 
 function isFunction (f) {
   return 'function' === typeof f
