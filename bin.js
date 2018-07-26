@@ -101,7 +101,7 @@ if (argv[0] == 'server') {
     {
       manifest: manifest,
       port: config.port,
-      host: config.host || 'localhost',
+      host: 'localhost',
       caps: config.caps,
       key: config.key || keys.id
     },
