@@ -23,7 +23,10 @@ argv = ~i ? argv.slice(0, i) : argv
 
 var config = require('ssb-config/inject')(
   process.env.ssb_appname,
-  minimist(conf)
+  Object.assign(
+    minimist(conf),
+    { host: process.env.ssb_host }
+  )
 )
 
 var keys = ssbKeys.loadOrCreateSync(path.join(config.path, 'secret'))
