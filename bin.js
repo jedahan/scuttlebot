@@ -14,8 +14,8 @@ var cmdAliases = require('./lib/cli-cmd-aliases')
 var ProgressBar = require('./lib/progress')
 var packageJson = require('./package.json')
 
-//get config as cli options after --, options before that are
-//options to the command.
+// get config as cli options after --, options before that are
+// options to the command.
 var argv = process.argv.slice(2)
 var i = argv.indexOf('--')
 var conf = argv.slice(i + 1)
