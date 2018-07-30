@@ -96,7 +96,7 @@ module.exports = {
         stats: {
           duration: peer.duration || undefined,
           rtt: peer.ping ? peer.ping.rtt : undefined,
-          skew: peer.ping ? peer.ping.skew : undefined,
+          skew: peer.ping ? peer.ping.skew : undefined
         }
       }
     }
@@ -299,6 +299,30 @@ module.exports = {
       status[rpc.id] = simplify(peer)
 
       server.emit('log:info', ['SBOT', stringify(peer), 'PEER JOINED'])
+
+      // autofriend local peers?
+      if (server.friends) {
+        if (peer.source === 'local') {
+          server.friends.get({dest: peer.key}, (_, found) => {
+            if (Object.keys(found).length === 0) {
+              server.emit('log:info', ['SBOT', `autofriending new local peer`, 'AUTOFRIEND NEW'])
+              const friend = {
+                type: 'contact',
+                contact: peer.key,
+                following: true,
+                flagged: { reason: 'autofriend' }
+              }
+              server.publish(friend, (err, results) => {
+                if (err) { server.emit('log:error', ['SBOT', stringify(friend), 'AUTOFRIEND ERROR']) }
+                server.emit('log:info', ['SBOT', `autofreinded ${friend.contact}`, 'AUTOFRIEND SUCCESS'])
+              })
+            }
+          })
+        }
+      } else {
+        server.emit('log:info', ['SBOT', `no friends plugin found?`, 'AUTOFRIEND ERROR'])
+      }
+
       // means that we have created this connection, not received it.
       peer.client = !!isClient
       peer.state = 'connected'
