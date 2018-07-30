@@ -54,6 +54,7 @@ module.exports = {
       var data = buf.toString()
       var peer = ref.parseAddress(data)
       if (peer && peer.key !== sbot.id) {
+        peer.host = buf.address
         addrs[peer.key] = peer
         lastSeen[peer.key] = Date.now()
         sbot.gossip.add(data, 'local')
