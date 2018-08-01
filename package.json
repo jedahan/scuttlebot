@@ -74,10 +74,6 @@
     "ssb-msg-schemas": "~3.2.0",
     "tape": "~4.0.0"
   },
-  "bin": {
-    "sbot": "./bin.js",
-    "scuttlebot": "./bin.js"
-  },
   "scripts": {
     "start": "node bin server",
     "prepublishOnly": "npm ls && npm test",
